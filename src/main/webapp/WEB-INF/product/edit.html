@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><a th:href="@{/product}">Back list</a></p>
+
+
+<form th:object="${product}" th:action="@{/product/editProduct}" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Edit</legend>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td><input th:field="*{id}"></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input th:field="*{name}"></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input th:field="*{description}"></td>
+            </tr>
+            <tr>
+                <td>Img</td>
+                <td><input th:field="*{image}" type="file" th:src="@{'/image' + *{image}}"></td>
+            </tr>
+        </table>
+    </fieldset>
+
+
+</form>
+</body>
+</html>
